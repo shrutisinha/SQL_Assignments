@@ -24,7 +24,7 @@ SELECT f.title, c.name, i.film_id, COUNT(f.film_id) AS count
 			ON i.inventory_id = r. inventory_id 
 	WHERE c.name = 'Horror' 
 	GROUP BY i.film_id 
-	ORDER BY COUNT(*) DESC 
+	ORDER BY COUNT(f.film_id) DESC 
 	LIMIT 3;
 
 \! echo "List of customers from India who have rented sports movies.";
@@ -131,7 +131,7 @@ SELECT c.name AS category, COUNT(c.name) AS count
 			ON r.customer_id = cust.customer_id
 	WHERE cust.first_name = 'PATRICIA' AND cust.last_name = 'JOHNSON'
 	GROUP BY c.name
-	ORDER BY COUNT(*) DESC
+	ORDER BY COUNT(c.name) DESC
 	LIMIT 3;
 
 \! echo "Number of R rated movies rented by SUSAN WILSON."
